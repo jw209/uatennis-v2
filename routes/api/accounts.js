@@ -9,6 +9,7 @@ const validateRegisterInput = require("../../validation/register");
 
 const Account = require("../../models/Account");
 
+// route for registration
 router.post("/register", (req, res) => {
 
     const { errors, isValid } = validateRegisterInput(req.body);
@@ -42,3 +43,49 @@ router.post("/register", (req, res) => {
         }
     });
 });
+
+// route for logging in
+router.post("/login", (req,res) => {
+    const { errors, isValid } = validateLoginInput(req.body);
+
+    if (!isValid) {
+        return res.status(400).json(errors);
+    }
+
+    const email = req.body.email;
+    const password = req.body.password;
+
+    Account.findOne({ email }).then(account => {
+        if(!account) {
+            return res.status(404).json({ emailnotfound: "Email not found"});
+        }
+        bcrypt.compare(password, account.password).then(isMatch => {
+            if (isMatch) {
+                const payload = {
+                    id: account.id,
+                    fname: account.fname
+                };
+            
+                jwt.sign(
+                    payload,
+                    keys.secretOrKey,
+                    {
+                        expiresIn: 86400
+                    },
+                    (err, token) => {
+                        res.json({
+                            success: true,
+                            token: "Bearer " + token
+                        });
+                    }
+                );
+            } else {
+                return res
+                    .status(400)
+                    .json({ passwordincorrect: "Incorrect password" });
+            }
+        });
+    });
+});
+
+module.exports = router;

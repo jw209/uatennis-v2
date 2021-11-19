@@ -1,5 +1,8 @@
 const express = require("express");
 const mongoose = require("mongoose");
+const passport = require("passport");
+
+const accounts = require("./routes/api/accounts");
 
 const app = express();
 
@@ -16,6 +19,12 @@ mongoose.connect(
 )
 .then(() => console.log("Connection successful"))
 .catch(err => console.log(err));
+
+app.use(passport.initialize());
+
+require("./config/passport")(passport);
+
+app.use("/api/users", users);
 
 const port = process.env.port || 5000;
 
