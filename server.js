@@ -3,6 +3,8 @@ const mongoose = require("mongoose");
 const passport = require("passport");
 
 const accounts = require("./routes/api/accounts");
+const comments = require("./routes/api/comments");
+const players = require("./routes/api/players");
 
 const app = express();
 
@@ -25,7 +27,9 @@ app.use(passport.initialize());
 require("./config/passport")(passport);
 
 app.use("/api/accounts", accounts);
+app.use("/api/comments", comments);
+app.use("/api/players", players);
 
-const port = process.env.port || 5000;
+const port = process.env.PORT || 5000;
 
-app.listen(port, () => console.log(`Server listening on port ${port}`));
+app.listen(port, () => console.log(`Server listening on port ${port}`))
