@@ -8,6 +8,7 @@ import Forum from './components/Forum';
 import Home from './components/Home';
 import Login from './components/Login';
 import Ranked from './components/Ranked';
+import Register from './components/Register';
 
 function App() {
   return (
@@ -22,6 +23,8 @@ function App() {
               <Route exact path="/forum" element={<Forum />}>
               </Route>
               <Route exact path="/ranked" element={<Ranked />}>
+              </Route>
+              <Route exact path="/register" element={<Register />}>
               </Route>
           </Routes>
         </BrowserRouter>
