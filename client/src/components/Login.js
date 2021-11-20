@@ -1,4 +1,8 @@
 import React from "react";
+import PropTypes from "prop-types";
+import { connect } from "react-redux";
+import { loginUser } from "../actions/authActions";
+import classnames from "classnames";
 
 class Login extends React.Component {
     constructor() {
@@ -8,6 +12,18 @@ class Login extends React.Component {
             password: "",
             errors: {}
         };
+    }
+
+    componentWillReceiveProps(nextProps) {
+        if (nextProps.auth.isAuthenticated) {
+            this.props.history.push("/");
+        }
+
+        if (nextProps.errors) {
+            this.setState({
+                errors: nextProps.errors
+            });
+        }
     }
 
     onChange = e => {
@@ -22,7 +38,7 @@ class Login extends React.Component {
             password: this.state.password
         };
 
-        console.log(accountData);
+        this.props.loginUser(accountData);
     };
 
     render() {
@@ -40,7 +56,11 @@ class Login extends React.Component {
                         onChange={this.onChange}
                         value={this.state.email}
                         error={errors.email}
+                        className={classnames("", {
+                            invalid: errors.email || errors.emailnotfound
+                        })}
                     />
+                    <span className="red-text">{errors.email}{errors.emailnotfound}</span>
                 </div>
                 <div class="input-group mb-3">
                     <span class="input-group-text" id="basic-addon1">Password</span>
@@ -48,7 +68,11 @@ class Login extends React.Component {
                         onChange={this.onChange}
                         value={this.state.password}
                         error={errors.password}
+                        className={classnames("", {
+                            invalid: errors.password || errors.incorrectpassword
+                        })}
                     />
+                    <span className="red-text">{errors.password}{errors.incorrectpassword}</span>
                 </div>
                 <input type="submit" class="btn btn-outline-light" value="Login"/>
                 </form>
@@ -58,4 +82,18 @@ class Login extends React.Component {
     }
 }
 
-export default Login;
+Login.propTypes = {
+    loginUser: PropTypes.func.isRequired,
+    auth: PropTypes.object.isRequired,
+    errors: PropTypes.object.isRequired
+};
+
+const mapStateToProps = state => ({
+    auth: state.auth,
+    errors: state.errors
+});
+
+export default connect(
+    mapStateToProps,
+    { loginUser }
+) (Login);
