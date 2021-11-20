@@ -1,9 +1,9 @@
 import './App.css';
-import {
-  BrowserRouter,
-  Routes, // instead of "Switch"
-  Route,
-} from "react-router-dom";
+import { BrowserRouter as Router, Route } from "react-router-dom";
+
+import { Provider } from "react-redux";
+import store from "./store";
+
 import Forum from './components/Forum';
 import Home from './components/Home';
 import Login from './components/Login';
@@ -12,24 +12,20 @@ import Register from './components/Register';
 
 function App() {
   return (
-    <div className="App">
-      <div className="App-header">
-        <BrowserRouter>
-          <Routes>
-              <Route exact path="/" element={<Home />}>
-              </Route>
-              <Route exact path="/login" element={<Login />}>
-              </Route>
-              <Route exact path="/forum" element={<Forum />}>
-              </Route>
-              <Route exact path="/ranked" element={<Ranked />}>
-              </Route>
-              <Route exact path="/register" element={<Register />}>
-              </Route>
-          </Routes>
-        </BrowserRouter>
+    <Provider store={store}>
+      <div className="App">
+            <div className="App-header">
+                <Router>
+                    <Route exact path="/" component={Home} />
+                    <Route exact path="/login" component={Login} />
+                    <Route exact path="/forum" component={Forum} />
+                    <Route exact path="/ranked" component={Ranked} />
+                    <Route exact path="/register" component={Register} />
+                </Router>
+            </div>
       </div>
-    </div>
+    </Provider>
+    
   );
 }
 
