@@ -1,6 +1,7 @@
 import React from 'react';
 
 class Navbar extends React.Component {
+
     render() {
         return(
             <div>
@@ -19,7 +20,7 @@ class Navbar extends React.Component {
                         <a class="nav-link" href="/forum">Forum</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/login">Login</a>
+                        <a class="nav-link" href="/login">Dashboard</a>
                     </li>
                     </ul>
                 </div>
