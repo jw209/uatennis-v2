@@ -52,36 +52,40 @@ class Login extends React.Component {
 
         return(
             <div>
-                <h1>Login page</h1>
-                <h1>New member?<a className="nav-link" href="/register"> Sign up</a></h1><br/><br/>
-                <form noValidate onSubmit={this.onSubmit}>
-                <h1>Register page</h1><br/>
-                <div class="input-group mb-3">
-                    <span class="input-group-text" id="basic-addon1">Email</span>
-                    <input type="text" class="form-control" placeholder="" aria-label="email" aria-describedby="basic-addon1" id="email"
-                        onChange={this.onChange}
-                        value={this.state.email}
-                        error={errors.email}
-                        className={classnames("", {
-                            invalid: errors.email || errors.emailnotfound
-                        })}
-                    />
-                    <span className="red-text">{errors.email}{errors.emailnotfound}</span>
+                <h1>New member? <a href="/register">Sign up</a></h1>
+                <div class="row" noValidate onSubmit={this.onSubmit}>
+                    <form class="col s12">
+                    <div class="row">
+                        <div class="input-field col s12">
+                        <input id="email" type="email" style={{color: "white"}} class="validate"
+                            onChange={this.onChange}
+                            value={this.state.email}
+                            error={errors.email}
+                            className={classnames("", {
+                                invalid: errors.email || errors.emailnotfound
+                            })}
+                        />
+                        <span className="red-text">{errors.email}{errors.emailnotfound}</span>
+                        <label for="email">Email</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s12">
+                        <input id="password" type="password" style={{color: "white"}} class="validate"
+                            onChange={this.onChange}
+                            value={this.state.password}
+                            error={errors.password}
+                            className={classnames("", {
+                                invalid: errors.password || errors.incorrectpassword
+                            })}
+                        />
+                        <span className="red-text">{errors.password}{errors.incorrectpassword}</span>
+                        <label for="password">Password</label>
+                        </div>
+                    </div>
+                    <button class="btn waves-effect waves-light" type="submit" name="action">Login</button>
+                    </form>
                 </div>
-                <div class="input-group mb-3">
-                    <span class="input-group-text" id="basic-addon1">Password</span>
-                    <input type="password" class="form-control" placeholder="" aria-label="password" aria-describedby="basic-addon1" id="password"
-                        onChange={this.onChange}
-                        value={this.state.password}
-                        error={errors.password}
-                        className={classnames("", {
-                            invalid: errors.password || errors.incorrectpassword
-                        })}
-                    />
-                    <span className="red-text">{errors.password}{errors.incorrectpassword}</span>
-                </div>
-                <input type="submit" class="btn btn-outline-light" value="Login"/>
-                </form>
             </div>
             
         )

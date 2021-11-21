@@ -58,79 +58,92 @@ class Register extends React.Component {
 
         return(
             <div>
-                <form noValidate onSubmit={this.onSubmit}>
-                <h1>Register page</h1><br/>
-                <div class="input-group mb-3">
-                    <span class="input-group-text" id="basic-addon1">First Name</span>
-                    <input type="text" class="form-control" placeholder="" aria-label="fname" aria-describedby="basic-addon1" id="fname"
-                        onChange={this.onChange}
-                        value={this.state.fname}
-                        error={errors.fname}
-                        className={classnames("", {
-                            invalid: errors.fname
-                        })}
-                    />
-                    <span className="red-text">{errors.fname}</span>
+                <h1>Already have an account?<a href="/login"> Login</a></h1>
+                <div class="row">
+                    <form class="col s12" noValidate onSubmit={this.onSubmit}>
+                    <div class="row">
+                        <div class="input-field col s6">
+                        <input id="fname" type="text" style={{color: "white"}} class="validate white"
+                            onChange={this.onChange}
+                            value={this.state.fname}
+                            error={errors.fname}
+                            className={classnames("", {
+                                invalid: errors.fname
+                            })}
+                        />
+                        <span className="red-text">{errors.fname}</span>
+                        <label for="fname">First Name</label>
+                        </div>
+                        <div class="input-field col s6">
+                        <input id="lname" type="text" style={{color: "white"}} class="validate"
+                            onChange={this.onChange}
+                            value={this.state.lname}
+                            error={errors.lname}
+                            className={classnames("", {
+                                invalid: errors.lname
+                            })}
+                        />
+                        <span className="red-text">{errors.lname}</span>
+                        <label for="lname">Last Name</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s12">
+                        <input id="password" type="password" style={{color: "white"}} class="validate"
+                            onChange={this.onChange}
+                            value={this.state.password}
+                            error={errors.password}
+                            className={classnames("", {
+                                invalid: errors.password
+                            })}
+                        />
+                        <span className="red-text">{errors.password}</span>
+                        <label for="password">Password</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s12">
+                        <input id="password2" type="password" style={{color: "white"}} class="validate"
+                            onChange={this.onChange}
+                            value={this.state.password2}
+                            error={errors.password2}
+                            className={classnames("", {
+                                invalid: errors.password2
+                            })}
+                        />
+                        <span className="red-text">{errors.password2}</span>
+                        <label for="password2">Verify Password</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s12">
+                        <input id="email" type="email" style={{color: "white"}} class="validate"
+                            onChange={this.onChange}
+                            value={this.state.email}
+                            error={errors.email}
+                            className={classnames("", {
+                                invalid: errors.email
+                            })}/>
+                        <span className="red-text">{errors.email}</span>
+                        <label for="email">Email</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s12">
+                        <input id="uanetid" type="text" style={{color: "white"}} class="validate"
+                            onChange={this.onChange}
+                            value={this.state.uanetid}
+                            error={errors.uanetid}
+                            className={classnames("", {
+                                invalid: errors.uanetid
+                            })}/>
+                        <span className="red-text">{errors.uanetid}</span>
+                        <label for="uanetid">UA Net ID</label>
+                        </div>
+                    </div>
+                    <button class="btn waves-effect waves-light" type="submit" name="action">Register</button>
+                    </form>
                 </div>
-                <div class="input-group mb-3">
-                    <span class="input-group-text" id="basic-addon1">Last Name</span>
-                    <input type="text" class="form-control" placeholder="" aria-label="lname" aria-describedby="basic-addon1" id="lname"
-                        onChange={this.onChange}
-                        value={this.state.lname}
-                        error={errors.lname}
-                    />
-                    <span className="red-text">{errors.lname}</span>
-                </div>
-                <div class="input-group mb-3">
-                    <span class="input-group-text" id="basic-addon1">Email</span>
-                    <input type="email" class="form-control" placeholder="" aria-label="email" aria-describedby="basic-addon1" id="email"
-                        onChange={this.onChange}
-                        value={this.state.email}
-                        error={errors.email}
-                        className={classnames("", {
-                            invalid: errors.email
-                        })}
-                    />
-                    <span className="red-text">{errors.email}</span>
-                </div>
-                <div class="input-group mb-3">
-                    <span class="input-group-text" id="basic-addon1">UA Net ID</span>
-                    <input type="text" class="form-control" placeholder="" aria-label="uanetid" aria-describedby="basic-addon1" id="uanetid"
-                        onChange={this.onChange}
-                        value={this.state.uanetid}
-                        error={errors.uanetid}
-                        className={classnames("", {
-                            invalid: errors.uanetid
-                        })}
-                    />
-                    <span className="red-text">{errors.uanetid}</span>
-                </div>
-                <div class="input-group mb-3">
-                    <span class="input-group-text" id="basic-addon1">Password</span>
-                    <input type="password" class="form-control" placeholder="" aria-label="password" aria-describedby="basic-addon1" id="password"
-                        onChange={this.onChange}
-                        value={this.state.password}
-                        error={errors.password}
-                        className={classnames("", {
-                            invalid: errors.password
-                        })}
-                    />
-                    <span className="red-text">{errors.password}</span>
-                </div>
-                <div class="input-group mb-3">
-                    <span class="input-group-text" id="basic-addon1">Verify password</span>
-                    <input type="password" class="form-control" placeholder="" aria-label="password2" aria-describedby="basic-addon1" id="password2"
-                        onChange={this.onChange}
-                        value={this.state.password2}
-                        error={errors.password2}
-                        className={classnames("", {
-                            invalid: errors.password2
-                        })}
-                    />
-                    <span className="red-text">{errors.password2}</span>
-                </div>
-                <input type="submit" class="btn btn-outline-light" value="Register"/>
-                </form>
             </div>
         )
     }
