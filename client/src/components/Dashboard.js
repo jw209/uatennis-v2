@@ -7,7 +7,6 @@ import { logoutUser } from "../actions/authActions";
 class Dashboard extends Component {
     state = {
         fname: '',
-        lname: '',
         comment: '',
         commentCollection: [],
         date: ''
@@ -44,16 +43,17 @@ class Dashboard extends Component {
     
     submit = (event) => {
         event.preventDefault();
+
+        const { user } = this.props.auth;
     
         const payload = {
-          fname: this.state.fname,
-          lname: this.state.lname,
+          fname: user.fname,
           comment: this.state.comment,
           date: this.state.date
         }
     
         axios({
-          url: '/api/saveComment',
+          url: '/api/comments/saveComment',
           method: 'POST',
           data: payload
         })
@@ -72,7 +72,7 @@ class Dashboard extends Component {
     
         return commentCollection.map((comments, index) => (
           <div key={index}>
-            <h3>{comments.fname}&nbsp;{comments.lname}&nbsp;<span style={{color:"green"}}>[{comments.date}]</span></h3>
+            <h5>{comments.fname}&nbsp;<span style={{color:"green"}}>[{comments.date}]</span></h5>
             <p>{comments.comment}</p>
           </div>
         ))
@@ -93,7 +93,7 @@ class Dashboard extends Component {
     };
 
     render() {
-        const { user } = this.props.auth;
+      const { user } = this.props.auth;
     return (
         <div>
           <div 
@@ -120,15 +120,20 @@ class Dashboard extends Component {
           <div
             style={{
               position:"absolute",
-              top:"800px",
-              paddingLeft:"2%"
+              top:"700px",
+              paddingLeft:"1%"
           }}>
             <div class="row">
-              <form class="col s12">
+              <form class="col s12" onSubmit={this.submit} noValidate>
                 <div class="row">
                   <div class="input-field col s12">
-                    <textarea id="textarea1" class="materialize-textarea" style={{ color:"white" }} maxLength="100"></textarea>
-                    <label for="textarea1">Chat with other members</label>
+                    <textarea id="textarea1" class="materialize-textarea" style={{ color:"white" }} maxLength="100" name="comment" value={this.state.comment} onChange={this.handleChange}></textarea>
+                    <label for="textarea1">Chat with other members</label><br/>
+                    <input type="submit" class="btn btn-outline-secondary" value="send"
+                      style={{
+                        position:"absolute"
+                      }}
+                    />
                   </div>
                 </div>
               </form>
