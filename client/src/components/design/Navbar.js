@@ -12,6 +12,7 @@ class Navbar extends React.Component {
                     <ul class="right hide-on-med-and-down">
                         <li><a href="/ranked">Ranked</a></li>
                         <li><a href="/login">Members</a></li>
+                        <li><a href="/matchentry">Submit Match</a></li>
                     </ul>
                     </div>
                 </nav>
@@ -19,6 +20,7 @@ class Navbar extends React.Component {
                 <ul class="sidenav" id="mobile-demo">
                         <li><a href="/ranked">Ranked</a></li>
                         <li><a href="/login">Members</a></li>
+                        <li><a href="/matchentry">Submit Match</a></li>
                 </ul>
             </div>
         )

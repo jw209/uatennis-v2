@@ -14,6 +14,9 @@ import Ranked from './components/Ranked';
 import Register from './components/Register';
 import PrivateRoute from "./components/private-route/PrivateRoute";
 import Dashboard from "./components/Dashboard";
+import MatchEntry from './components/MatchEntry';
+import EntryRoute from "./components/private-route/EntryRoute";
+import QueryMatch from './components/QueryMatch';
 
 // Check for token to keep user logged in
 if (localStorage.jwtToken) {
@@ -42,11 +45,13 @@ function App() {
                 <Router>
                     <Route exact path="/" component={Home} />
                     <Route exact path="/login" component={Login} />
+                    <Route exact path="/querymatch" component={QueryMatch} />
                     <Route exact path="/forum" component={Forum} />
                     <Route exact path="/ranked" component={Ranked} />
                     <Route exact path="/register" component={Register} />
                     <Switch>
                       <PrivateRoute exact path="/dashboard" component={Dashboard} />
+                      <EntryRoute exact path="/matchentry" component={MatchEntry} />
                     </Switch>
                 </Router>
             </div>

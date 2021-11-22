@@ -6,6 +6,7 @@ import Navbar from './components/design/Navbar';
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
+  //removed strictmode
   <React.StrictMode>
     <Navbar />
     <App />

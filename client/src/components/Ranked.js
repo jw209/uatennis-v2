@@ -41,8 +41,12 @@ class Ranked extends React.Component {
     }
     render() {
         return(
-            <div>
-                <h1>Ranked page</h1>
+            <div
+                style={{
+                    paddingLeft:"2%"
+                }}
+            >
+                <h1>Season: <span style={{color:"green"}}>Fall 2021</span></h1>
                 {this.displayPlayers(this.state.players)}
             </div>
             

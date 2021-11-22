@@ -57,7 +57,11 @@ class Register extends React.Component {
         const { errors } = this.state;
 
         return(
-            <div>
+            <div
+                style={{
+                    paddingLeft:"2%"
+                }}
+            >
                 <h1>Already have an account?<a href="/login"> Login</a></h1>
                 <div class="row">
                     <form class="col s12" noValidate onSubmit={this.onSubmit}>

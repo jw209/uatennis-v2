@@ -51,7 +51,11 @@ class Login extends React.Component {
         const { errors } = this.state;
 
         return(
-            <div>
+            <div
+                style={{
+                    paddingLeft:"2%"
+                }}
+            >
                 <h1>New member? <a href="/register">Sign up</a></h1>
                 <div class="row" noValidate onSubmit={this.onSubmit}>
                     <form class="col s12">
