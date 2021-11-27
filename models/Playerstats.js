@@ -2,10 +2,10 @@ const mongoose = require('mongoose');
 
 // schema
 const Schema = mongoose.Schema;
-const ProfileSchema = new Schema({
-    name: String,
-    title: String,
-    bio: String
+const PlayerstatsSchema = new Schema({
+    wins: Number,
+    losses: Number,
+    wratio: Number
 });
 
 // model
