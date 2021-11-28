@@ -7,16 +7,14 @@ import { setCurrentUser, logoutUser } from "./actions/authActions";
 import { Provider } from "react-redux";
 import store from "./store";
 
-import Forum from './components/Forum';
 import Home from './components/Home';
 import Login from './components/Login';
 import Ranked from './components/Ranked';
 import Register from './components/Register';
-import PrivateRoute from "./components/private-route/PrivateRoute";
-import Dashboard from "./components/Dashboard";
+import ChatRoute from "./components/private-route/ChatRoute";
+import Chat from "./components/Chat";
 import MatchEntry from './components/MatchEntry';
 import EntryRoute from "./components/private-route/EntryRoute";
-import QueryMatch from './components/QueryMatch';
 
 // Check for token to keep user logged in
 if (localStorage.jwtToken) {
@@ -45,12 +43,10 @@ function App() {
                 <Router>
                     <Route exact path="/" component={Home} />
                     <Route exact path="/login" component={Login} />
-                    <Route exact path="/querymatch" component={QueryMatch} />
-                    <Route exact path="/forum" component={Forum} />
                     <Route exact path="/ranked" component={Ranked} />
                     <Route exact path="/register" component={Register} />
                     <Switch>
-                      <PrivateRoute exact path="/dashboard" component={Dashboard} />
+                      <ChatRoute exact path="/chat" component={Chat} />
                       <EntryRoute exact path="/matchentry" component={MatchEntry} />
                     </Switch>
                 </Router>

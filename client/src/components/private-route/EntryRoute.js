@@ -10,7 +10,7 @@ const EntryRoute = ({ component: Component, auth, ...rest }) => (
       auth.isAuthenticated === true ? (
         <Component {...props} />
       ) : (
-        <Redirect to="/querymatch" />
+        <Redirect to="/login" />
       )
     }
   />

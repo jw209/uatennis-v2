@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { logoutUser } from "../actions/authActions";
 
-class Dashboard extends Component {
+class Chat extends Component {
     state = {
         fname: '',
         comment: '',
@@ -144,7 +144,7 @@ class Dashboard extends Component {
     }
 }
     
-Dashboard.propTypes = {
+Chat.propTypes = {
     logoutUser: PropTypes.func.isRequired,
     auth: PropTypes.object.isRequired
 };
@@ -156,4 +156,4 @@ const mapStateToProps = state => ({
 export default connect(
   mapStateToProps,
   { logoutUser }
-)(Dashboard);
+)(Chat);
