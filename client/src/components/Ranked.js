@@ -4,8 +4,11 @@ import axios from "axios";
 class Ranked extends React.Component {
   
     state = {
+        rank: 0,
         name: '',
         score: 0,
+        wins: 0,
+        losses: 0,
         players: []
     };
     
@@ -28,14 +31,14 @@ class Ranked extends React.Component {
     displayPlayers = (players) => {
         if (!players.length) return null;
         
+        //not sure what this does
         players.sort(function(a, b) {
-        return b.score - a.score;
+        return b.rank - a.rank;
         });
     
         return players.map((player, index) => (
         <div key={index}>
             <h3>{index+1})&nbsp;{player.name}</h3>
-            <p>{player.score}</p>
         </div>
         ))
     }
@@ -46,7 +49,7 @@ class Ranked extends React.Component {
                     paddingLeft:"2%"
                 }}
             >
-                <h1>Season: <span style={{color:"green"}}>Fall 2021</span></h1>
+                <h2>Season: <span style={{color:"green"}}>Fall 2021</span></h2>
                 {this.displayPlayers(this.state.players)}
             </div>
             
