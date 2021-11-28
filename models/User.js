@@ -3,8 +3,11 @@ const mongoose = require('mongoose');
 // schema
 const Schema = mongoose.Schema;
 const PlayerSchema = new Schema({
+    rank: Number,
     name: String,
-    score: Number
+    wins: Number,
+    losses: Number,
+    wratio: Number
 });
 
 // model
