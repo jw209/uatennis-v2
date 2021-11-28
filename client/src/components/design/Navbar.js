@@ -11,7 +11,7 @@ class Navbar extends React.Component {
                     <a href="/" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
                     <ul class="right hide-on-med-and-down">
                         <li><a href="/ranked">Ranked</a></li>
-                        <li><a href="/login">Members</a></li>
+                        <li><a href="/chat">Chat</a></li>
                         <li><a href="/matchentry">Submit Match</a></li>
                     </ul>
                     </div>
@@ -19,7 +19,7 @@ class Navbar extends React.Component {
 
                 <ul class="sidenav" id="mobile-demo">
                         <li><a href="/ranked">Ranked</a></li>
-                        <li><a href="/login">Members</a></li>
+                        <li><a href="/chat">Chat</a></li>
                         <li><a href="/matchentry">Submit Match</a></li>
                 </ul>
             </div>
