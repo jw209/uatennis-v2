@@ -5,16 +5,19 @@ class Clock extends Component{
         super(props);
         this.state = {date: new Date()};
     }
-componentDidMount(){
+
+    componentDidMount(){
         this.timer = setInterval(
             () => this.setState({date: new Date()}),
             1000
         );
     }
-componentWillUnmount(){
+
+    componentWillUnmount(){
         clearInterval(this.timer);
     }
-render(){
+
+    render(){
         return( 
             <div className="clock">
                 <div className="timer">{this.state.date.toLocaleTimeString()}</div>
@@ -22,4 +25,5 @@ render(){
         )
     }
 }
+
 export default Clock

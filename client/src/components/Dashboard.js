@@ -123,7 +123,7 @@ class Chat extends Component {
               width: "100%"
             }}
             >
-               Welcome, {user.fname.split(" ")[0]}&nbsp;&nbsp;&nbsp;&nbsp;<span style={{color:"blue"}}><Clock /></span>
+               Welcome, {user.fname.split(" ")[0]}&nbsp;&nbsp;&nbsp;&nbsp;<span style={{color:"green"}}><Clock /></span>
             </h2>
           </div>
           <div className="comment-section">

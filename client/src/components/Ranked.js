@@ -51,7 +51,7 @@ class Ranked extends React.Component {
         return(
             <div
                 style={{
-                    paddingLeft:"2%"
+                    paddingLeft:"5%"
                 }}
             >
                 <h2>Season: <span style={{color:"green"}}>Fall 2021</span></h2>

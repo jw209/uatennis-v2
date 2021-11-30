@@ -153,10 +153,9 @@ class MatchEntry extends React.Component {
                       }}
                     />
                     </form>
-                </div>
-                <div>{this.displayStatus(this.state.isSubmitted)}</div>
-                <br/><br/>
-                <p style={{color:"red"}}><Link to="/chat">Return to dashboard</Link></p>
+                </div><br/>
+                <p style={{marginLeft:"-5%"}}>{this.displayStatus(this.state.isSubmitted)}</p>
+                <p style={{color:"red", marginLeft:".5%"}}><Link to="/dashboard">Return to dashboard</Link></p>
             </div>
         )
     }

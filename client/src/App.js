@@ -11,12 +11,11 @@ import Home from './components/Home';
 import Login from './components/Login';
 import Ranked from './components/Ranked';
 import Register from './components/Register';
-import ChatRoute from "./components/private-route/ChatRoute";
-import Chat from "./components/Chat";
+import Dashboard from "./components/Dashboard";
 import MatchEntry from './components/MatchEntry';
+
 import EntryRoute from "./components/private-route/EntryRoute";
-import PlayerRoute from "./components/private-route/PlayerRoute";
-import Players from "./components/Players";
+import ChatRoute from "./components/private-route/ChatRoute";
 
 // Check for token to keep user logged in
 if (localStorage.jwtToken) {
@@ -48,15 +47,13 @@ function App() {
                     <Route exact path="/ranked" component={Ranked} />
                     <Route exact path="/register" component={Register} />
                     <Switch>
-                      <ChatRoute exact path="/chat" component={Chat} />
+                      <ChatRoute exact path="/dashboard" component={Dashboard} />
                       <EntryRoute exact path="/matchentry" component={MatchEntry} />
-                      <PlayerRoute exact path="/players" component={Players} />
                     </Switch>
                 </Router>
             </div>
       </div>
     </Provider>
-    
   );
 }
 

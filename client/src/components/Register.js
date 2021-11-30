@@ -77,7 +77,7 @@ class Register extends React.Component {
                             })}
                         />
                         <span className="red-text">{errors.fname}</span>
-                        <label for="fname">First Name</label>
+                        <label htmlFor="fname">First Name</label>
                         </div>
                         <div className="input-field col s6">
                         <input id="lname" type="text" className="validate"
@@ -89,7 +89,7 @@ class Register extends React.Component {
                             })}
                         />
                         <span className="red-text">{errors.lname}</span>
-                        <label for="lname">Last Name</label>
+                        <label htmlFor="lname">Last Name</label>
                         </div>
                     </div>
                     <div className="row">
@@ -103,7 +103,7 @@ class Register extends React.Component {
                             })}
                         />
                         <span className="red-text">{errors.password}</span>
-                        <label for="password">Password</label>
+                        <label htmlFor="password">Password</label>
                         </div>
                     </div>
                     <div className="row">
@@ -117,7 +117,7 @@ class Register extends React.Component {
                             })}
                         />
                         <span className="red-text">{errors.password2}</span>
-                        <label for="password2">Verify Password</label>
+                        <label htmlFor="password2">Verify Password</label>
                         </div>
                     </div>
                     <div className="row">
@@ -130,7 +130,7 @@ class Register extends React.Component {
                                 invalid: errors.email
                             })}/>
                         <span className="red-text">{errors.email}</span>
-                        <label for="email">Email</label>
+                        <label htmlFor="email">Email</label>
                         </div>
                     </div>
                     <div className="row">
@@ -143,7 +143,7 @@ class Register extends React.Component {
                                 invalid: errors.uanetid
                             })}/>
                         <span className="red-text">{errors.uanetid}</span>
-                        <label for="uanetid">UA Net ID</label>
+                        <label htmlFor="uanetid">UA Net ID</label>
                         </div>
                     </div>
                     <button className="btn waves-effect waves-light" type="submit" name="action">Register</button>
