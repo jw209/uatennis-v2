@@ -53,15 +53,16 @@ class Login extends React.Component {
         return(
             <div
                 style={{
-                    paddingLeft:"2%"
+                    paddingLeft:"2%",
+                    paddingRight:"2%"
                 }}
             >
                 <h1>New member? <a href="/register">Sign up</a></h1>
-                <div class="row" noValidate onSubmit={this.onSubmit}>
-                    <form class="col s12">
-                    <div class="row">
-                        <div class="input-field col s12">
-                        <input id="email" type="email" style={{color: "white"}} class="validate"
+                <div className="row" noValidate onSubmit={this.onSubmit}>
+                    <form className="col s12">
+                    <div className="row">
+                        <div className="input-field col s12">
+                        <input id="email" type="email" className="validate"
                             onChange={this.onChange}
                             value={this.state.email}
                             error={errors.email}
@@ -70,12 +71,12 @@ class Login extends React.Component {
                             })}
                         />
                         <span className="red-text">{errors.email}{errors.emailnotfound}</span>
-                        <label for="email">Email</label>
+                        <label htmlFor="email">Email</label>
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="input-field col s12">
-                        <input id="password" type="password" style={{color: "white"}} class="validate"
+                    <div className="row">
+                        <div className="input-field col s12">
+                        <input id="password" type="password" className="validate"
                             onChange={this.onChange}
                             value={this.state.password}
                             error={errors.password}
@@ -84,10 +85,10 @@ class Login extends React.Component {
                             })}
                         />
                         <span className="red-text">{errors.password}{errors.incorrectpassword}</span>
-                        <label for="password">Password</label>
+                        <label htmlFor="password">Password</label>
                         </div>
                     </div>
-                    <button class="btn waves-effect waves-light" type="submit" name="action">Login</button>
+                    <button className="btn waves-effect waves-light" type="submit" name="action">Login</button>
                     </form>
                 </div>
             </div>

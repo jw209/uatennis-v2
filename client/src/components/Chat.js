@@ -3,6 +3,8 @@ import axios from "axios";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { logoutUser } from "../actions/authActions";
+import { Link } from "react-router-dom";
+import Clock from "./Clock";
 
 class Chat extends Component {
     state = {
@@ -69,6 +71,13 @@ class Chat extends Component {
     
     displayComments = (commentCollection) => {
         if (!commentCollection.length) return null;
+
+        commentCollection.sort(function(a, b) {
+          if(a.date > b.date) return -1;
+          if(a.date < b.date) return 1;
+    
+          return 0;
+        });
     
         return commentCollection.map((comments, index) => (
           <div key={index}>
@@ -99,20 +108,23 @@ class Chat extends Component {
           <div 
             style={{
               position:"absolute",
-              paddingLeft:"2%",
+              paddingLeft:"5%",
               paddingTop:"2%",
-              width:"500px",
-              height:"200px"
+              width:"600px",
+              height:"200px",
+              whiteSpace:"nowrap"
             }}
           >
-            <h1 className="greeting">Welcome, {user.fname.split(" ")[0]}</h1>
-            <button type="button" class="btn btn-outline-secondary" onClick={this.onLogoutClick}
+            <h2 className="greeting"
               style={{
-                position:"absolute"
-              }}
+              position: "absolute",
+              display: "flex",
+              justifyContent: "space-between",
+              width: "100%"
+            }}
             >
-              Logout
-            </button>
+               Welcome, {user.fname.split(" ")[0]}&nbsp;&nbsp;&nbsp;&nbsp;<span style={{color:"blue"}}><Clock /></span>
+            </h2>
           </div>
           <div className="comment-section">
               {this.displayComments(this.state.commentCollection)}
@@ -120,16 +132,16 @@ class Chat extends Component {
           <div
             style={{
               position:"absolute",
-              top:"700px",
-              paddingLeft:"1%"
+              top:"70%",
+              paddingLeft:"4%"
           }}>
-            <div class="row">
-              <form class="col s12" onSubmit={this.submit} noValidate>
-                <div class="row">
-                  <div class="input-field col s12">
-                    <textarea id="textarea1" class="materialize-textarea" style={{ color:"white" }} maxLength="100" name="comment" value={this.state.comment} onChange={this.handleChange}></textarea>
-                    <label for="textarea1">Chat with other members</label><br/>
-                    <input type="submit" class="btn btn-outline-secondary" value="send"
+            <div className="row">
+              <form className="col s12" onSubmit={this.submit} noValidate>
+                <div className="row">
+                  <div className="input-field col s12">
+                    <textarea id="textarea1" className="materialize-textarea" maxLength="100" name="comment" value={this.state.comment} onChange={this.handleChange}></textarea>
+                    <label htmlFor="textarea1">Chat with other members</label><br/>
+                    <input type="submit" className="btn btn-outline-secondary" value="send"
                       style={{
                         position:"absolute"
                       }}
@@ -138,6 +150,7 @@ class Chat extends Component {
                 </div>
               </form>
             </div>
+            <p style={{paddingLeft:"5%", overflow:"auto", float:"left", whiteSpace:"nowrap", display:"inline-block"}}><Link style={{hover:"white"}} to="/matchentry">Submit match </Link>&nbsp;&nbsp;&nbsp;<Link style={{color:"red"}} onClick={this.onLogoutClick} to="/#">Logout</Link></p>
           </div>
         </div>
         );

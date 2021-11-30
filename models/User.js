@@ -8,7 +8,8 @@ const PlayerSchema = new Schema({
     score: Number,
     wins: Number,
     losses: Number,
-    wratio: Number
+    wratio: Number,
+    uanetid: String
 });
 
 // model

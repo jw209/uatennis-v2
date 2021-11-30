@@ -3,6 +3,8 @@ const mongoose = require('mongoose');
 // schema
 const Schema = mongoose.Schema;
 const GameSchema = new Schema({
+    userfname: String,
+    userlname: String,
     oppfname: String,
     opplname: String,
     set1you: String,

@@ -5,6 +5,7 @@ const passport = require("passport");
 const accounts = require("./routes/api/accounts");
 const comments = require("./routes/api/comments");
 const players = require("./routes/api/players");
+const games = require("./routes/api/games");
 
 const app = express();
 
@@ -29,6 +30,7 @@ require("./config/passport")(passport);
 app.use("/api/accounts", accounts);
 app.use("/api/comments", comments);
 app.use("/api/players", players);
+app.use("/api/games", games);
 
 const port = process.env.PORT || 5000;
 

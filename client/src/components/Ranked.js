@@ -1,5 +1,7 @@
 import React from "react";
 import axios from "axios";
+import {useLocation, Link, Switch, Route, Router} from "react-router-dom";
+import {useParams} from "react-router";
 
 class Ranked extends React.Component {
   
@@ -9,9 +11,11 @@ class Ranked extends React.Component {
         score: 0,
         wins: 0,
         losses: 0,
+        wratio: 0,
+        uanetid: '',
         players: []
     };
-    
+
     componentDidMount = () => {
         this.getPlayer();
     }
@@ -31,9 +35,8 @@ class Ranked extends React.Component {
     displayPlayers = (players) => {
         if (!players.length) return null;
         
-        //not sure what this does
         players.sort(function(a, b) {
-        return b.rank - a.rank;
+        return b.score - a.score;
         });
     
         return players.map((player, index) => (
@@ -42,7 +45,9 @@ class Ranked extends React.Component {
         </div>
         ))
     }
+
     render() {
+        
         return(
             <div
                 style={{

@@ -15,6 +15,8 @@ import ChatRoute from "./components/private-route/ChatRoute";
 import Chat from "./components/Chat";
 import MatchEntry from './components/MatchEntry';
 import EntryRoute from "./components/private-route/EntryRoute";
+import PlayerRoute from "./components/private-route/PlayerRoute";
+import Players from "./components/Players";
 
 // Check for token to keep user logged in
 if (localStorage.jwtToken) {
@@ -48,6 +50,7 @@ function App() {
                     <Switch>
                       <ChatRoute exact path="/chat" component={Chat} />
                       <EntryRoute exact path="/matchentry" component={MatchEntry} />
+                      <PlayerRoute exact path="/players" component={Players} />
                     </Switch>
                 </Router>
             </div>

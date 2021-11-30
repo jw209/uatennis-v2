@@ -59,15 +59,16 @@ class Register extends React.Component {
         return(
             <div
                 style={{
-                    paddingLeft:"2%"
+                    paddingLeft:"2%",
+                    paddingRight:"2%"
                 }}
             >
                 <h1>Already have an account?<a href="/login"> Login</a></h1>
-                <div class="row">
-                    <form class="col s12" noValidate onSubmit={this.onSubmit}>
-                    <div class="row">
-                        <div class="input-field col s6">
-                        <input id="fname" type="text" style={{color: "white"}} class="validate white"
+                <div className="row">
+                    <form className="col s12" noValidate onSubmit={this.onSubmit}>
+                    <div className="row">
+                        <div className="input-field col s6">
+                        <input id="fname" type="text" className="validate white"
                             onChange={this.onChange}
                             value={this.state.fname}
                             error={errors.fname}
@@ -78,8 +79,8 @@ class Register extends React.Component {
                         <span className="red-text">{errors.fname}</span>
                         <label for="fname">First Name</label>
                         </div>
-                        <div class="input-field col s6">
-                        <input id="lname" type="text" style={{color: "white"}} class="validate"
+                        <div className="input-field col s6">
+                        <input id="lname" type="text" className="validate"
                             onChange={this.onChange}
                             value={this.state.lname}
                             error={errors.lname}
@@ -91,9 +92,9 @@ class Register extends React.Component {
                         <label for="lname">Last Name</label>
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="input-field col s12">
-                        <input id="password" type="password" style={{color: "white"}} class="validate"
+                    <div className="row">
+                        <div className="input-field col s12">
+                        <input id="password" type="password" className="validate"
                             onChange={this.onChange}
                             value={this.state.password}
                             error={errors.password}
@@ -105,9 +106,9 @@ class Register extends React.Component {
                         <label for="password">Password</label>
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="input-field col s12">
-                        <input id="password2" type="password" style={{color: "white"}} class="validate"
+                    <div className="row">
+                        <div className="input-field col s12">
+                        <input id="password2" type="password" className="validate"
                             onChange={this.onChange}
                             value={this.state.password2}
                             error={errors.password2}
@@ -119,9 +120,9 @@ class Register extends React.Component {
                         <label for="password2">Verify Password</label>
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="input-field col s12">
-                        <input id="email" type="email" style={{color: "white"}} class="validate"
+                    <div className="row">
+                        <div className="input-field col s12">
+                        <input id="email" type="email" className="validate"
                             onChange={this.onChange}
                             value={this.state.email}
                             error={errors.email}
@@ -132,9 +133,9 @@ class Register extends React.Component {
                         <label for="email">Email</label>
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="input-field col s12">
-                        <input id="uanetid" type="text" style={{color: "white"}} class="validate"
+                    <div className="row">
+                        <div className="input-field col s12">
+                        <input id="uanetid" type="text" className="validate"
                             onChange={this.onChange}
                             value={this.state.uanetid}
                             error={errors.uanetid}
@@ -145,7 +146,7 @@ class Register extends React.Component {
                         <label for="uanetid">UA Net ID</label>
                         </div>
                     </div>
-                    <button class="btn waves-effect waves-light" type="submit" name="action">Register</button>
+                    <button className="btn waves-effect waves-light" type="submit" name="action">Register</button>
                     </form>
                 </div>
             </div>
