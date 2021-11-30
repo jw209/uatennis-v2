@@ -9,7 +9,6 @@ class MatchEntry extends React.Component {
         isSubmitted: '',
         // data to be saved
         userfname: '',
-        userlname: '',
         oppfname: '',
         opplname: '',
         set1you: '',
@@ -41,7 +40,6 @@ class MatchEntry extends React.Component {
     
         const payload = {
             userfname: user.fname,
-            userlname: user.lname,
             oppfname: this.state.oppfname,
             opplname: this.state.opplname,
             set1you: this.state.set1you,
