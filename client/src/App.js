@@ -13,6 +13,7 @@ import Ranked from './components/Ranked';
 import Register from './components/Register';
 import Dashboard from "./components/Dashboard";
 import MatchEntry from './components/MatchEntry';
+import Announcements from './components/Announcements';
 
 import EntryRoute from "./components/private-route/EntryRoute";
 import ChatRoute from "./components/private-route/ChatRoute";
@@ -46,6 +47,7 @@ function App() {
                     <Route exact path="/login" component={Login} />
                     <Route exact path="/ranked" component={Ranked} />
                     <Route exact path="/register" component={Register} />
+                    <Route exact path="/announcements" component={Announcements} />
                     <Switch>
                       <ChatRoute exact path="/dashboard" component={Dashboard} />
                       <EntryRoute exact path="/matchentry" component={MatchEntry} />

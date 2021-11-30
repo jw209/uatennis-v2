@@ -1,7 +1,5 @@
 import React from "react";
 import axios from "axios";
-import {useLocation, Link, Switch, Route, Router} from "react-router-dom";
-import {useParams} from "react-router";
 
 class Ranked extends React.Component {
     state = {
