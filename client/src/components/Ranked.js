@@ -4,15 +4,11 @@ import {useLocation, Link, Switch, Route, Router} from "react-router-dom";
 import {useParams} from "react-router";
 
 class Ranked extends React.Component {
-  
     state = {
-        rank: 0,
         name: '',
         score: 0,
         wins: 0,
         losses: 0,
-        wratio: 0,
-        uanetid: '',
         players: []
     };
 
@@ -41,7 +37,12 @@ class Ranked extends React.Component {
     
         return players.map((player, index) => (
         <div key={index}>
-            <h3>{index+1})&nbsp;{player.name}</h3>
+            <h2>{index+1})&nbsp;{player.name}</h2>
+            <span style={{color:"red"}}>
+                <p>Score: <span style={{color:"black"}}>{player.score}</span></p>
+                <p>Wins: <span style={{color:"black"}}>{player.wins}</span></p>
+                <p>Losses: <span style={{color:"black"}}>{player.losses}</span></p>
+            </span>
         </div>
         ))
     }
@@ -54,7 +55,7 @@ class Ranked extends React.Component {
                     paddingLeft:"5%"
                 }}
             >
-                <h2>Season: <span style={{color:"green"}}>Fall 2021</span></h2>
+                <h1>Season: <span style={{color:"green"}}>Fall 2021</span></h1>
                 {this.displayPlayers(this.state.players)}
             </div>
             
